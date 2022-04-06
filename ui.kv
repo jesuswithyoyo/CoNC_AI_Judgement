@@ -1,0 +1,144 @@
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
+#: import MDBoxLayout kivymd.uix.boxlayout.MDBoxLayout
+#: import MDTextField kivymd.uix.textfield.MDTextField
+
+<cunt_or_NOTcunt>:
+#####################################
+#########  TEXT INPUT  #############
+    Screen:
+        name: "screen1"
+        md_bg_color: app.theme_cls.bg_darkest
+        pading: "6 dp"
+
+        #YEP NEVER USED THIS CAUSE LOOKED SHIT. FU KIVYMD
+        MDBoxLayout:
+            text: ""
+            halign: "center"
+
+            #MAIN TEXTFIELD FOR INPUT TO AI
+            MDTextField:
+                id: master_input_text
+                font_size: 20
+                hint_text: "    Paste Text Here"
+                hint_font_style: "Subtitle2"
+                pos_hint: {"center_y": .65}
+                multiline: True
+                mode: "rectangle"
+                max_height:"294dp"
+                icon_right_color_focus: 245, 40, 145, 0.8   #rgba pink
+                on_text_validate: root.masterINPUTtext(self)
+
+        #CHECKBOX TO PROTECT THE SEND BUTTON   
+        MDCheckbox:
+            id: sw
+            size_hint: None, None
+            size: dp(40), dp(40)
+            pos_hint: {"center_y": .3, "center_x": .23}
+            active: True
+            on_active:
+                print(self.active)
+
+        #ACTIVATE SENDING TEXT FOR JUDGEMENT
+        MDRectangleFlatButton:
+            id: act_jud
+            disabled: sw.active
+            text: "ACTIVATE JUDGEMENT"
+            font_style: "Subtitle2"
+            pos_hint: {"center_y": .3, "center_x": .5}
+            line_color: 0, 255, 0, 0.81 #rgba awesome green
+            theme_icon_color: "Custom"
+            on_release:app.root.onClick()
+
+        ########### PISSED ME OFF RAGEQUIT!!!
+        # MDLabel:
+        #     text: root.answer
+        #     halign: "right"
+        #     pos_hint: {"center_y": .3, "center_x": .2}
+        
+        #PRINTS TO THE SCREEN AFTER JUDGEMENT
+        MDLabel:
+            text: root.text
+            halign: "left"
+
+        #THIS WAS THE FASTEST WAY TO ADD HOW TO DO SHIT
+        MDLabel:
+            text: "[LOAD TEXT]-[UNLOCK]-[ACTIVATE JUDGEMENT]-[WAIT]"
+            color:170, 199, 167, 0.8    #dull green
+            halign:"center"
+            pos_hint: {"center_y": .22}
+
+####################################
+#######  #NAV TYPE BUTTON  #########  
+#######     Screen One     #########
+        MDRaisedButton:
+            text: "by DumbNerd"
+            pos_hint: {"center_y": .1, "center_x": .2}
+            
+            #WHEN BUTTON PRESSED SET DIRECTION SLIDE + cHANGE SCREEN
+            on_release: 
+                root.transition = SlideTransition(direction="left")
+                root.current = 'screen2'
+
+
+#####################################
+##########  RESULTS  ################
+#######  Screen Two    ##############
+    Screen:
+        name: "screen2"
+
+        #PAGE TITLE
+        MDLabel:
+            text: "Cunt or NOT Cunt"
+            halign: "center"
+            font_style: "H3"
+            color:"grey"
+            # text_color: app.theme_cls.bg_darkest
+            pos_hint: {"center_y": .9}  #, "center_x": .8}
+        MDLabel:
+            text: "This project started after I went on a date....True Story"
+            color: "green"
+            font_style:"Body1"
+            pos_hint: {"center_y": .8}
+            halign:"center"
+        MDLabel:
+            text: "I used KivyMD to make this and I will never use that shitfull code again.  I might look at Kivy2 at some stage. But after the hours of confusion and rage I felt from their READTHEDOCS and the github page I will need a break from this joyless fkN shit..  I first wrote Cunt or NOT Cunt in pure python and it was fkn awesomes.. i wanted to enjoy myself while i made this app and add some funny AF extras... but KivyMD can kiss my tits!! FU KIVYMD   I will make the app i wanted soon as i find the code for android that makes me happy."
+            color:"green"
+            font_stlye:"Body2"
+            pos_hint: {"center_y": .6}
+            halign:"center"
+        MDLabel:
+            text: "Do you ever think to your self while reading social media or new articles that the author sounds like a total cunt of a person?   I do and if I do other people do too.  Soooo this app is super easy.  Copy the text from that suss post you're reading into the text area.  Then send it to a REAL machine learning AI robot.  The AI will read it and then pass judgement. Cunt? or NOT Cunt?"
+            color: "green"
+            font_style:"Body2"
+            pos_hint: {"center_y": .3}
+            halign:"center"
+        MDLabel:
+            text: "=Btr^n:] by DumbNerd 2022"
+            color: "pink"
+            font_style:"Button"
+            pos_hint: {"center_y": .2}
+            halign:"right"
+
+
+####################################
+#######  #NAV TYPE BUTTON  #########  
+        MDRaisedButton:
+            text: "Fk OFF BACK"
+            pos_hint: {"center_y": .1, "center_x": .8}
+            font_style: "Subtitle2"
+            on_release: 
+                root.transition = SlideTransition(direction="right")
+                root.current = 'screen1'
+
+
+#     id: cunt
+#     print("")
+#     print("")
+#     print:" ██████╗██╗   ██╗███╗   ██╗████████╗")
+#     print:"██╔════╝██║   ██║████╗  ██║╚══██╔══╝")
+#     print:"██║     ██║   ██║██╔██╗ ██║   ██║   ")
+#     print:"██║     ██║   ██║██║╚██╗██║   ██║   ")
+#     print:"╚██████╗╚██████╔╝██║ ╚████║   ██║   ")
+#     print:" ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   ")
+#     print("")
+#     print("")
